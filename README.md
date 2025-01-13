@@ -101,7 +101,7 @@ The following Laravel packages are included in the project:
 ### **10. AndreasElia/laravel-api-to-postman**
 - Exports your Laravel API routes to a Postman collection for easier API testing and documentation.
 
-### **11. binarcode/laravel-restify**
+### **11. binarcode/laravel-RestApiKit**
 - A set of tools to make building RESTful APIs easier within Laravel.
 
 ### **12. ahmedesa/laravel-api-tool-kit**
