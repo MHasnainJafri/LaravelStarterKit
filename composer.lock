@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d3ed811c42c07dce40103d020cb2ba00",
+    "content-hash": "fb87b48974d74d25e7829caaadcc621b",
     "packages": [
         {
             "name": "bacon/bacon-qr-code",
@@ -2806,6 +2806,73 @@
                 }
             ],
             "time": "2024-12-08T08:18:47+00:00"
+        },
+        {
+            "name": "mhasnainjafri/restapikit",
+            "version": "v1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/MHasnainJafri/RestApiKit.git",
+                "reference": "d428ac1559dd9da077876cc6cb511e046f4b1231"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/MHasnainJafri/RestApiKit/zipball/d428ac1559dd9da077876cc6cb511e046f4b1231",
+                "reference": "d428ac1559dd9da077876cc6cb511e046f4b1231",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/database": "^10.0|^11.0",
+                "illuminate/http": "^10.0|^11.0",
+                "illuminate/support": "^10.0|^11.0",
+                "php": "^8.0|^8.2|^8.3"
+            },
+            "require-dev": {
+                "orchestra/testbench": "^6.0",
+                "phpunit/phpunit": "^9.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "aliases": {
+                        "RestApiKit": "Mhasnainjafri\\RestApiKit\\RestApiKitFacade"
+                    },
+                    "providers": [
+                        "Mhasnainjafri\\RestApiKit\\RestApiKitServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Mhasnainjafri\\RestApiKit\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Muhammad Hasnain",
+                    "email": "mhasnainjafri51214@gmail.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Unlock the full potential of your REST API development with RestApiKit. This powerful toolkit offers a variety of utilities to simplify the process of creating, testing, and managing REST APIs. From automatic documentation generation to built-in validation, RestApiKit provides a seamless workflow for developers looking to build reliable and scalable APIs with ease. Focus more on the logic, and let RestApiKit handle the heavy lifting.",
+            "homepage": "https://github.com/mhasnainjafri/restapikit",
+            "keywords": [
+                "apitoolkit",
+                "laravel-json-api-paginate",
+                "laravel-query-builder",
+                "mhasnainjafri",
+                "restapikit",
+                "spatie"
+            ],
+            "support": {
+                "issues": "https://github.com/MHasnainJafri/RestApiKit/issues",
+                "source": "https://github.com/MHasnainJafri/RestApiKit/tree/v1.0.0"
+            },
+            "time": "2025-01-15T17:44:24+00:00"
         },
         {
             "name": "monolog/monolog",
