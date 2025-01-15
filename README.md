@@ -2,6 +2,15 @@
 
 This is a Laravel project that integrates a variety of useful packages to enhance functionality, improve development workflows, and support additional features. Below is an overview of the packages included in this project and how to use them.
 
+for caching and securing .htaccess
+PWA
+security Middleware
+
+SecurityHeadersMiddleware
+ContentSecurityPolicyMiddleware
+
+
+
 ## Requirements
 
 Before running the project, make sure you have the following installed:

@@ -10,21 +10,19 @@ class FileUploader
     /**
      * Upload a file to the specified or default disk.
      *
-     * @param UploadedFile $file
-     * @param string|null $path
-     * @param string|null $disk
      * @return string The file path
+     *
      * @throws \Exception
      */
     public static function upload(UploadedFile $file, ?string $path = null, ?string $disk = null): string
     {
         $disk = $disk ?? config('restify.file_upload_disk', 'local');
-        $fileName = uniqid('', true) . '.' . $file->getClientOriginalExtension();
+        $fileName = uniqid('', true).'.'.$file->getClientOriginalExtension();
         $filePath = $path ? "{$path}/{$fileName}" : $fileName;
 
         $stored = Storage::disk($disk)->put($filePath, file_get_contents($file->getRealPath()));
 
-        if (!$stored) {
+        if (! $stored) {
             throw new \Exception('File upload failed');
         }
 
@@ -33,10 +31,6 @@ class FileUploader
 
     /**
      * Delete a file.
-     *
-     * @param string $filePath
-     * @param string|null $disk
-     * @return bool
      */
     public static function delete(string $filePath, ?string $disk = null): bool
     {
@@ -47,10 +41,6 @@ class FileUploader
 
     /**
      * Get the URL for a stored file.
-     *
-     * @param string $filePath
-     * @param string|null $disk
-     * @return string
      */
     public static function url(string $filePath, ?string $disk = null): string
     {

@@ -1,4 +1,5 @@
 <?php
+
 namespace Mhasnainjafri\RestApiKit\Commands;
 
 use Illuminate\Console\Command;
@@ -6,11 +7,12 @@ use Illuminate\Console\Command;
 class SetupAuthCommand extends Command
 {
     protected $signature = 'RestApiKit:setup-auth';
+
     protected $description = 'Set up authentication for RestApiKit';
 
     public function handle()
     {
-       
+
         // Ask if Sanctum or Passport should be used
         $authOption = $this->choice('Which authentication method do you want to use?', ['Sanctum', 'Passport'], 0);
 

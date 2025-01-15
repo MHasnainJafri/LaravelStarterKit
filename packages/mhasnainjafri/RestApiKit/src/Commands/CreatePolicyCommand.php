@@ -1,4 +1,5 @@
 <?php
+
 namespace Mhasnainjafri\RestApiKit\Commands;
 
 use Illuminate\Console\Command;
@@ -7,6 +8,7 @@ use Illuminate\Support\Str;
 class CreatePolicyCommand extends Command
 {
     protected $signature = 'restify:policy {name} {--model=}';
+
     protected $description = 'Create a new policy with RestApiKit scaffold';
 
     public function handle()
@@ -14,7 +16,7 @@ class CreatePolicyCommand extends Command
         $name = $this->argument('name');
         $model = $this->option('model') ?? Str::studly(Str::before($name, 'Policy'));
 
-        $stubPath = __DIR__ . '/../../stubs/policy.stub';
+        $stubPath = __DIR__.'/../../stubs/policy.stub';
         $stub = file_get_contents($stubPath);
 
         $content = str_replace(
@@ -27,6 +29,7 @@ class CreatePolicyCommand extends Command
 
         if (file_exists($path)) {
             $this->error("Policy {$name} already exists!");
+
             return;
         }
 

@@ -50,6 +50,7 @@ return [
         'user_model' => "\App\Models\User",
     ],
 
+    'APP_DEBUG' => true,
     /*
     |--------------------------------------------------------------------------
     | RestApiKitJS
@@ -96,10 +97,9 @@ return [
     'middleware' => [
         'api',
         'auth:sanctum',
-             // DispatchRestApiKitStartingEvent::class,
+        // DispatchRestApiKitStartingEvent::class,
         // AuthorizeRestApiKit::class,
     ],
- 
 
     /*
     |--------------------------------------------------------------------------
@@ -153,11 +153,17 @@ return [
         | Specify the cache configuration for the resources policies.
         | When enabled, methods from the policy will be cached for the active user.
         */
+        'default_ttl' => 60,
+        'enabled' => true,
         'policies' => [
             'enabled' => false,
 
             'ttl' => 5 * 60, // seconds
         ],
+    ],
+    'forget' => [
+        'otp_size' => 6,
+        'max_otp_tries' => 3,
     ],
 
     /*
@@ -167,5 +173,6 @@ return [
      */
     'ai_solutions' => true,
 
-    'file_upload_disk'=>'local',
+    'file_upload_disk' => 'local',
+    'logger' => true,
 ];

@@ -1,9 +1,11 @@
 <?php
+
 namespace Mhasnainjafri\RestApiKit\Http\Controllers;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\UploadedFile;
-use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Cache;
 use Mhasnainjafri\RestApiKit\Helpers\FileUploader;
 use Mhasnainjafri\RestApiKit\Http\Responses\ResponseBuilder;
 
@@ -22,14 +24,21 @@ class RestController extends Controller
         ], $status);
     }
 
+    protected function cacheResponse(string $key, callable $callback, ?int $minutes = null): JsonResponse
+    {
+        $minutes = $minutes ?? config('restify.cache.default_ttl', 60);
 
-     /**
+        // Cache the data if it doesn't exist
+        $data = Cache::remember($key, $minutes, $callback);
+
+        return response()->json($data);
+    }
+
+    /**
      * Upload a file using FileUploader.
      *
-     * @param \Illuminate\Http\UploadedFile $file
-     * @param string|null $path
-     * @param string|null $disk
      * @return string The file path
+     *
      * @throws \Exception
      */
     public function upload(UploadedFile $file, ?string $path = null, ?string $disk = null): string
@@ -39,10 +48,6 @@ class RestController extends Controller
 
     /**
      * Delete a file.
-     *
-     * @param string $filePath
-     * @param string|null $disk
-     * @return bool
      */
     public function deleteFile(string $filePath, ?string $disk = null): bool
     {
@@ -51,10 +56,6 @@ class RestController extends Controller
 
     /**
      * Get the URL for a stored file.
-     *
-     * @param string $filePath
-     * @param string|null $disk
-     * @return string
      */
     public function fileUrl(string $filePath, ?string $disk = null): string
     {

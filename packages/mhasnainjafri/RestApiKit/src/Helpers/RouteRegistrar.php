@@ -1,4 +1,5 @@
 <?php
+
 namespace Mhasnainjafri\RestApiKit\Helpers;
 
 use Illuminate\Support\Facades\Route;
