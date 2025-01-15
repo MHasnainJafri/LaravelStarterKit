@@ -1,0 +1,133 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Services\{{name}}Service;
+use App\Models\{{model}};
+use Illuminate\Http\JsonResponse;
+use App\Http\Requests\{{name}}Request;
+use Illuminate\Http\Request
+
+class {{name}}Controller extends Controller
+{
+    private string $view;
+
+    public function __construct(private {{name}}Service $service, string $view = '{{name}}')
+    {
+        $this->view = $view;
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @param Request $request
+     * @return JsonResponse|\Illuminate\View\View
+     */
+    public function index(Request $request)
+    {
+        $filters = $request->query('filters', []);
+        $sortBy = $request->query('sort_by', 'id');
+        $sortOrder = $request->query('sort_order', 'asc');
+        $perPage = $request->query('per_page', 10);
+
+        $data = $this->service->list($filters, $sortBy, $sortOrder, $perPage);
+
+        if ($request->expectsJson()) {
+            return response()->json([
+                'success' => true,
+                'data' => $data,
+                'message' => __('messages.list_success', ['model' => __('models.{{model}}')]),
+            ]);
+        }
+
+        return view("{$this->view}.index", compact('data'));
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param {{name}}Request $request
+     * @return JsonResponse|\Illuminate\Http\RedirectResponse
+     */
+    public function store({{name}}Request $request)
+    {
+        $validated = $request->validated();
+
+        $record = $this->service->create($validated);
+
+        if ($request->expectsJson()) {
+            return response()->json([
+                'success' => true,
+                'data' => $record,
+                'message' => __('messages.create_success', ['model' => __('models.{{model}}')]),
+            ], 201);
+        }
+
+        return redirect()->route("{$this->view}.index")->with('success', __('messages.create_success', ['model' => __('models.{{model}}')]));
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param {{model}} ${{modelVariable}}
+     * @return JsonResponse|\Illuminate\View\View
+     */
+    public function show({{model}} ${{modelVariable}})
+    {
+        $record = $this->service->show(${{modelVariable}});
+
+        if (request()->expectsJson()) {
+            return response()->json([
+                'success' => true,
+                'data' => $record,
+                'message' => __('messages.show_success', ['model' => __('models.{{model}}')]),
+            ]);
+        }
+
+        return view("{$this->view}.show", compact('record'));
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param {{name}}Request $request
+     * @param {{model}} ${{modelVariable}}
+     * @return JsonResponse|\Illuminate\Http\RedirectResponse
+     */
+    public function update({{name}}Request $request, {{model}} ${{modelVariable}})
+    {
+        $validated = $request->validated();
+
+        $record = $this->service->update(${{modelVariable}}, $validated);
+
+        if ($request->expectsJson()) {
+            return response()->json([
+                'success' => true,
+                'data' => $record,
+                'message' => __('messages.update_success', ['model' => __('models.{{model}}')]),
+            ]);
+        }
+
+        return redirect()->route("{$this->view}.show", $record)->with('success', __('messages.update_success', ['model' => __('models.{{model}}')]));
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param {{model}} ${{modelVariable}}
+     * @return JsonResponse|\Illuminate\Http\RedirectResponse
+     */
+    public function destroy({{model}} ${{modelVariable}})
+    {
+        $this->service->delete(${{modelVariable}});
+
+        if (request()->expectsJson()) {
+            return response()->json([
+                'success' => true,
+                'message' => __('messages.delete_success', ['model' => __('models.{{model}}')]),
+            ]);
+        }
+
+        return redirect()->route("{$this->view}.index")->with('success', __('messages.delete_success', ['model' => __('models.{{model}}')]));
+    }
+}

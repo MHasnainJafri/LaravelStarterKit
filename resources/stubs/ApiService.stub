@@ -1,0 +1,11 @@
+<?php
+
+namespace App\Services\Api;
+
+class {{name}}Service
+{
+    public function handle()
+    {
+        // API-specific service logic here
+    }
+}
