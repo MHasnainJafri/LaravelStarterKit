@@ -10,10 +10,7 @@ use App\Http\Requests\{{name}}Request;
 
 class {{name}}Controller extends RestController
 {
-    public function __construct(private {{name}}Service $service)
-    {
-        // Optional: Add middleware or additional constructor logic
-    }
+    public function __construct(private {{name}}Service $service){}
 
     /**
      * Display a listing of the resource.
@@ -21,6 +18,7 @@ class {{name}}Controller extends RestController
      * @param {{name}}Request $request
      * @return JsonResponse
      */
+     
     public function index({{name}}Request $request): JsonResponse
     {
         $filters = $request->query('filters', []);
