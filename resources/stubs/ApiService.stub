@@ -1,11 +1,99 @@
 <?php
-
 namespace App\Services\Api;
+
+use App\Models\{{model}};
+use App\Traits\BaseQuery;
+use Illuminate\Contracts\Pagination\LengthAwarePaginator;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 
 class {{name}}Service
 {
-    public function handle()
+    use BaseQuery;
+
+    public function __construct(private {{model}} $_model)
     {
-        // API-specific service logic here
+    }
+
+    /**
+     * List records with optional filters, sorting, and pagination.
+     *
+     * @param array $filters
+     * @param string $sortBy
+     * @param string $sortOrder
+     * @param int $perPage
+     * @return LengthAwarePaginator
+     */
+    public function list(array $filters = [], string $sortBy = 'id', string $sortOrder = 'asc', int $perPage = 10): LengthAwarePaginator
+    {
+        $query = $this->_model::query();
+        $query = $this->applyFilters($query, $filters);
+        $query = $this->applySorting($query, $sortBy, $sortOrder);
+
+        return $this->applyPagination($query, $perPage);
+    }
+
+    /**
+     * Create a new record.
+     *
+     * @param array $data
+     * @return {{model}}
+     */
+    public function create(array $data): {{model}}
+    {
+        return DB::transaction(fn() => $this->_model::create($data));
+    }
+
+    /**
+     * Update an existing record.
+     *
+     * @param {{model}} $modelVariable
+     * @param array $data
+     * @return {{model}}
+     */
+    public function update({{model}} $modelVariable, array $data): {{model}}
+    {
+         try {
+            return DB::transaction(function () use ($modelVariable, $data) {
+                tap($modelVariable)->update($data);
+                return $modelVariable->refresh(); // Return the updated model
+            });
+        } catch (Throwable $e) {
+            throw $e;
+        }
+       
+    }
+
+    /**
+     * Delete a record.
+     *
+     * @param {{model}} $modelVariable
+     * @return bool|null
+     */
+    public function delete({{model}} $modelVariable): ?bool
+    {
+        return DB::transaction(fn() => $modelVariable->delete());
+    }
+
+    /**
+     * Show a specific record.
+     *
+     * @param {{model}} $modelVariable
+     * @return {{model}}|null
+     */
+    public function show({{model}} $modelVariable): ?{{model}}
+    {
+        return $modelVariable;
+    }
+
+    /**
+     * Get a new query builder instance for the model.
+     *
+     * @return Builder
+     */
+    public function newQuery(): Builder
+    {
+        return $this->_model::query();
     }
 }

@@ -9,6 +9,9 @@ security Middleware
 SecurityHeadersMiddleware
 ContentSecurityPolicyMiddleware
 
+php artisan update:model User --table=users
+
+
 
 
 ## Requirements
