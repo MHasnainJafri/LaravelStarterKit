@@ -33,7 +33,7 @@ class {{name}}Controller extends RestController
         return $this->response([
             'success' => true,
             'data' => $data,
-            'message' => __('messages.list_success', ['model' => __('models.{{model}}')]),
+            'message' => __('messages.list', ['model' => __('models.{{model}}')]),
         ]);
     }
 
@@ -51,7 +51,7 @@ class {{name}}Controller extends RestController
         return $this->response([
             'success' => true,
             'data' => $record,
-            'message' => __('messages.create_success', ['model' => __('models.{{model}}')]),
+            'message' => __('messages.create', ['model' => __('models.{{model}}')]),
         ], 201);
     }
 
@@ -68,7 +68,7 @@ class {{name}}Controller extends RestController
         return $this->response([
             'success' => true,
             'data' => $record,
-            'message' => __('messages.show_success', ['model' => __('models.{{model}}')]),
+            'message' => __('messages.show', ['model' => __('models.{{model}}')]),
         ]);
     }
 
@@ -87,7 +87,7 @@ class {{name}}Controller extends RestController
         return $this->response([
             'success' => true,
             'data' => $record,
-            'message' => __('messages.update_success', ['model' => __('models.{{model}}')]),
+            'message' => __('messages.update', ['model' => __('models.{{model}}')]),
         ]);
     }
 
@@ -103,7 +103,7 @@ class {{name}}Controller extends RestController
 
         return $this->response([
             'success' => true,
-            'message' => __('messages.delete_success', ['model' => __('models.{{model}}')]),
+            'message' => __('messages.delete', ['model' => __('models.{{model}}')]),
         ]);
     }
 }

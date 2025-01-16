@@ -6,19 +6,22 @@ use App\Services\{{name}}Service;
 use App\Models\{{model}};
 use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
+use \Illuminate\View\View;
+
 
 class {{name}}Controller extends Controller
 {
+    ;
 
-    public function __construct(private {{name}}Service $service,private $view={{name}}){}
+    public function __construct(private {{name}}Service $service,private string $view='{{name}}'){}
 
     /**
      * Display a listing of the resource.
      *
      * @param Request $request
-     * @return JsonResponse|\Illuminate\View\View
+     * @return JsonResponse|View
      */
-    public function index(Request $request)
+    public function index(Request $request): JsonResponse|View
     {
         $filters = $request->query('filters', []);
         $sortBy = $request->query('sort_by', 'id');
@@ -34,19 +37,19 @@ class {{name}}Controller extends Controller
             ]);
         }
 
-        return view($view.'.index', compact('data'));
+        return view("{$this->view}.index", compact('data'));
     }
 
     /**
      * Store a newly created resource in storage.
      *
      * @param Request $request
-     * @return JsonResponse|\Illuminate\Http\RedirectResponse
+     * @return JsonResponse|RedirectResponse
      */
-    public function store(Request $request)
+    public function store(Request $request): JsonResponse|RedirectResponse
     {
         $validated = $request->validate([
-            // Define your validation rules here
+            // Validation rules go here
         ]);
 
         $record = $this->service->create($validated);
@@ -59,16 +62,16 @@ class {{name}}Controller extends Controller
             ], 201);
         }
 
-        return redirect()->route('{{model}}.index')->with('success', '{{model}} created successfully.');
+        return redirect()->route("{$this->view}.index")->with('success', '{{model}} created successfully.');
     }
 
     /**
      * Display the specified resource.
      *
      * @param {{model}} ${{modelVariable}}
-     * @return JsonResponse|\Illuminate\View\View
+     * @return JsonResponse|View
      */
-    public function show({{model}} ${{modelVariable}})
+    public function show({{model}} ${{modelVariable}}): JsonResponse|View
     {
         $record = $this->service->show(${{modelVariable}});
 
@@ -79,7 +82,7 @@ class {{name}}Controller extends Controller
             ]);
         }
 
-        return view($view.'.show', compact('record'));
+        return view("{$this->view}.show", compact('record'));
     }
 
     /**
@@ -87,12 +90,12 @@ class {{name}}Controller extends Controller
      *
      * @param Request $request
      * @param {{model}} ${{modelVariable}}
-     * @return JsonResponse|\Illuminate\Http\RedirectResponse
+     * @return JsonResponse|RedirectResponse
      */
-    public function update(Request $request, {{model}} ${{modelVariable}})
+    public function update(Request $request, {{model}} ${{modelVariable}}): JsonResponse|RedirectResponse
     {
         $validated = $request->validate([
-            // Define your validation rules here
+            // Validation rules go here
         ]);
 
         $record = $this->service->update(${{modelVariable}}, $validated);
@@ -105,26 +108,26 @@ class {{name}}Controller extends Controller
             ]);
         }
 
-        return redirect()->route('{{model}}.show', $record)->with('success', '{{model}} updated successfully.');
+        return redirect()->back()->with('success', '{{model}} updated successfully.');
     }
 
     /**
      * Remove the specified resource from storage.
      *
      * @param {{model}} ${{modelVariable}}
-     * @return JsonResponse|\Illuminate\Http\RedirectResponse
+     * @return JsonResponse|RedirectResponse
      */
-    public function destroy({{model}} ${{modelVariable}})
+    public function destroy({{model}} ${{modelVariable}}): JsonResponse|RedirectResponse
     {
         $this->service->delete(${{modelVariable}});
 
         if (request()->expectsJson()) {
             return response()->json([
                 'success' => true,
-                'message' => '{{model}} deleted successfully.',
+                'message' => trans('messages.delete', ['model' => '{{model}}']),
             ]);
         }
 
-        return redirect()->route('{{model}}.index')->with('success', '{{model}} deleted successfully.');
+        return redirect()->back()->with('success', trans('{{model}}.created', ['model' => '{{model}}']));
     }
 }
