@@ -99,25 +99,21 @@ trait BaseQuery
     /**
      * Apply a date range filter to the query.
      *
-     * @param Builder $query
-     * @param string $startDate
-     * @param string $endDate
-     * @param string $column
-     * @return Builder
+     * @param  string  $startDate
+     * @param  string  $endDate
+     * @param  string  $column
      */
     public function applyDateRange(Builder $query, $startDate, $endDate, $column = 'created_at'): Builder
     {
         if ($startDate && $endDate) {
             return $query->whereBetween($column, [$startDate, $endDate]);
         }
+
         return $query;
     }
+
     /**
      * Apply nested filters to the query.
-     *
-     * @param Builder $query
-     * @param array $nestedFilters
-     * @return Builder
      */
     public function applyNestedFilters(Builder $query, array $nestedFilters): Builder
     {
@@ -132,18 +128,20 @@ trait BaseQuery
                 $query->where($field, $value);
             }
         }
+
         return $query;
     }
 
     public function applyFilters(Builder $query, array $filters): Builder
     {
         foreach ($filters as $key => $value) {
-            if (method_exists($this, $scope = 'scope' . ucfirst($key))) {
+            if (method_exists($this, $scope = 'scope'.ucfirst($key))) {
                 $query = $this->$scope($query, $value);
             } elseif (in_array($key, $this->fillable)) {
                 $query->where($key, 'like', "%$value%");
             }
         }
+
         return $query;
     }
 
@@ -157,7 +155,6 @@ trait BaseQuery
         return $query->paginate($perPage);
     }
 
-
     public function applyEagerLoading(Builder $query, array $relationships): Builder
     {
         return $query->with($relationships);
@@ -168,6 +165,7 @@ trait BaseQuery
         foreach ($searchFields as $field) {
             $query->orWhere($field, 'like', "%$searchTerm%");
         }
+
         return $query;
     }
 
@@ -176,6 +174,7 @@ trait BaseQuery
         if ($includeDeleted) {
             return $query->withTrashed();
         }
+
         return $query->withoutTrashed();
     }
 
@@ -186,8 +185,6 @@ trait BaseQuery
 
         return $this->applyPagination($query, $perPage);
     }
-
-
 
     public function softDelete(Model $model)
     {

@@ -37,8 +37,9 @@ class MakeServicePattern extends Command
         $this->call('make:model', ['name' => $model]);
         $modelPath = app_path("Models/{$model}.php");
 
-        if (!File::exists($modelPath)) {
+        if (! File::exists($modelPath)) {
             $this->error("Model {$model} not found!");
+
             return;
         }
 
@@ -52,7 +53,7 @@ class MakeServicePattern extends Command
     }
 
 EOL;
-            $content = str_replace("}", "{$relationship}}", $content);
+            $content = str_replace('}', "{$relationship}}", $content);
         }
         File::put($modelPath, $content);
         $this->info("Model {$model} updated with relationships.");
@@ -62,57 +63,58 @@ EOL;
     {
         return ucfirst(str_replace('_id', '', $foreignKey));
     }
+
     protected function createService($name, $isApi)
     {
         $model = $this->option('model') ?: $name;
         $path = app_path("Services/{$name}Service.php");
         File::ensureDirectoryExists(dirname($path));
-    
+
         $content = $this->getStub('Service.stub', [
             'name' => $name,
             'model' => $model,
             'modelVariable' => lcfirst($model),
         ]);
-    
+
         File::put($path, $content);
         $this->info("Service class created at: {$path}");
     }
-    
+
     protected function createController($name, $isApi)
     {
         $model = $this->option('model') ?: $name;
         $type = $isApi ? 'Api/' : '';
         $path = app_path("Http/Controllers/{$type}{$name}Controller.php");
         File::ensureDirectoryExists(dirname($path));
-    
+
         $content = $this->getStub('Controller.stub', [
             'name' => $name,
             'model' => $model,
             'modelVariable' => lcfirst($model),
         ]);
-    
+
         File::put($path, $content);
         $this->info("Controller created at: {$path}");
     }
-    
+
     protected function createRequest($name, $isApi)
     {
         $type = $isApi ? 'Api/' : '';
         $path = app_path("Http/Requests/{$type}{$name}Request.php");
         File::ensureDirectoryExists(dirname($path));
-    
+
         $content = $this->getStub('Request.stub', ['name' => $name]);
-    
+
         File::put($path, $content);
         $this->info("Request class created at: {$path}");
     }
-    
 
     protected function getStub($stub, $replacements)
     {
         $stubPath = resource_path("stubs/{$stub}");
-        if (!File::exists($stubPath)) {
+        if (! File::exists($stubPath)) {
             $this->error("Stub file {$stub} not found!");
+
             return '';
         }
 

@@ -10,11 +10,9 @@ use Throwable;
 
 class CustomExceptionHandler extends Exception
 {
-     /**
+    /**
      * Handle an exception and return the appropriate response.
      *
-     * @param Throwable $exception
-     * @param Request $request
      * @return mixed
      */
     public function handle(Throwable $exception, Request $request)
@@ -34,7 +32,6 @@ class CustomExceptionHandler extends Exception
     /**
      * Handle a NotFoundHttpException.
      *
-     * @param Request $request
      * @return \Illuminate\Http\JsonResponse|\Illuminate\Http\RedirectResponse
      */
     protected function handleNotFound(Request $request)
@@ -52,7 +49,6 @@ class CustomExceptionHandler extends Exception
     /**
      * Handle an AuthenticationException.
      *
-     * @param Request $request
      * @return \Illuminate\Http\JsonResponse|\Illuminate\Http\RedirectResponse
      */
     protected function handleUnauthorized(Request $request)
@@ -70,8 +66,6 @@ class CustomExceptionHandler extends Exception
     /**
      * Handle a generic exception.
      *
-     * @param Throwable $exception
-     * @param Request $request
      * @return \Illuminate\Http\JsonResponse|\Illuminate\Contracts\View\View
      */
     protected function handleGeneric(Throwable $exception, Request $request)
@@ -87,4 +81,3 @@ class CustomExceptionHandler extends Exception
         return view('errors.500', ['message' => $exception->getMessage()]);
     }
 }
-

@@ -12,7 +12,8 @@ class ContentSecurityPolicyMiddleware
      * Handle an incoming request.
      *
      * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
-     */ public function handle($request, Closure $next)
+     */
+    public function handle($request, Closure $next)
     {
         $response = $next($request);
 
@@ -28,7 +29,7 @@ class ContentSecurityPolicyMiddleware
             "object-src 'none'", // Block all object, embed, and applet tags
             "base-uri 'self'", // Prevent the use of base URIs from other domains
             "form-action 'self'", // Restrict form submissions to the same origin
-            "frame-ancestors 'self'" // Prevent other sites from embedding your site in an iframe
+            "frame-ancestors 'self'", // Prevent other sites from embedding your site in an iframe
         ]);
 
         // Add the Content-Security-Policy header to the response
@@ -39,7 +40,7 @@ class ContentSecurityPolicyMiddleware
         $response->headers->set('X-Frame-Options', 'SAMEORIGIN'); // Prevent clickjacking
         $response->headers->set('X-XSS-Protection', '1; mode=block'); // Enable XSS protection in browsers
         $response->headers->set('Referrer-Policy', 'strict-origin-when-cross-origin'); // Control the referrer information sent with requests
-        $response->headers->set('Permissions-Policy', "geolocation=(), microphone=(), camera=()"); // Limit browser features
+        $response->headers->set('Permissions-Policy', 'geolocation=(), microphone=(), camera=()'); // Limit browser features
 
         return $response;
     }
