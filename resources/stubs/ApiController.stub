@@ -1,25 +1,25 @@
 <?php
+namespace App\Http\Controllers\Api{{namespace}};
 
-namespace App\Http\Controllers\Api;
-
-use App\Services\{{name}}Service;
+use App\Services{{namespace}}\{{name}}Service;
 use App\Models\{{model}};
 use Illuminate\Http\JsonResponse;
 use Mhasnainjafri\RestApiKit\Http\Controllers\RestController;
-use App\Http\Requests\{{name}}Request;
+use App\Http\Requests{{namespace}}\{{name}}Request;
+use Illuminate\Http\Request;
+use Illuminate\Http\RedirectResponse;
 
 class {{name}}Controller extends RestController
 {
-    public function __construct(private {{name}}Service $service){}
+    public function __construct(private {{name}}Service $service) {}
 
     /**
      * Display a listing of the resource.
      *
-     * @param {{name}}Request $request
+     * @param Request $request
      * @return JsonResponse
      */
-     
-    public function index({{name}}Request $request): JsonResponse
+    public function index(Request $request): JsonResponse
     {
         $filters = $request->query('filters', []);
         $sortBy = $request->query('sort_by', 'id');
@@ -28,11 +28,7 @@ class {{name}}Controller extends RestController
 
         $data = $this->service->list($filters, $sortBy, $sortOrder, $perPage);
 
-        return $this->response([
-            'success' => true,
-            'data' => $data,
-            'message' => __('messages.list', ['model' => __('models.{{model}}')]),
-        ]);
+        return $this->response($data, __('messages.show', ['model' => '{{model}}']));
     }
 
     /**
@@ -41,16 +37,13 @@ class {{name}}Controller extends RestController
      * @param {{name}}Request $request
      * @return JsonResponse
      */
+     
     public function store({{name}}Request $request): JsonResponse
     {
         $validated = $request->validated();
         $record = $this->service->create($validated);
 
-        return $this->response([
-            'success' => true,
-            'data' => $record,
-            'message' => __('messages.create', ['model' => __('models.{{model}}')]),
-        ], 201);
+        return $this->response($record, __('messages.store', ['model' => '{{model}}']), 201);
     }
 
     /**
@@ -63,11 +56,7 @@ class {{name}}Controller extends RestController
     {
         $record = $this->service->show(${{modelVariable}});
 
-        return $this->response([
-            'success' => true,
-            'data' => $record,
-            'message' => __('messages.show', ['model' => __('models.{{model}}')]),
-        ]);
+        return $this->response($record, __('messages.show', ['model' => '{{model}}']));
     }
 
     /**
@@ -82,11 +71,7 @@ class {{name}}Controller extends RestController
         $validated = $request->validated();
         $record = $this->service->update(${{modelVariable}}, $validated);
 
-        return $this->response([
-            'success' => true,
-            'data' => $record,
-            'message' => __('messages.update', ['model' => __('models.{{model}}')]),
-        ]);
+        return $this->response($record, __('messages.update', ['model' => '{{model}}']));
     }
 
     /**
@@ -99,9 +84,7 @@ class {{name}}Controller extends RestController
     {
         $this->service->delete(${{modelVariable}});
 
-        return $this->response([
-            'success' => true,
-            'message' => __('messages.delete', ['model' => __('models.{{model}}')]),
-        ]);
+        return $this->response([], __('messages.delete', ['model' => '{{model}}']));
     }
+
 }

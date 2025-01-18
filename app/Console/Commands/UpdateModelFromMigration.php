@@ -315,13 +315,13 @@ class UpdateModelFromMigration extends Command
 
                 // Read the existing content of the file
                 $existingContent = File::get($filePath);
-                
+
                 // Ensure we find the last closing brace `}` and insert $reverseRelation before it
                 $existingContent = preg_replace('/}\s*$/', "{$reverseRelation}\n", $existingContent);
-                
+
                 // Write the modified content back to the file
                 File::put($filePath, $existingContent);
-                
+
             }
 
         }

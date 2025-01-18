@@ -1,9 +1,9 @@
 <?php
+namespace App\Services{{namespace}};
 
-namespace App\Services;
-
+use Throwable;
 use App\Models\{{model}};
-use App\Traits\BaseQuery;
+use App\Helper\BaseQuery;
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;

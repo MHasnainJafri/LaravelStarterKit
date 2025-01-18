@@ -1,133 +1,75 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Requests{{namespace}};
 
-use App\Services\{{name}}Service;
-use App\Models\{{model}};
-use Illuminate\Http\JsonResponse;
-use App\Http\Requests\{{name}}Request;
-use Illuminate\Http\Request
+use Illuminate\Foundation\Http\FormRequest;
 
-class {{name}}Controller extends Controller
+class {{name}}Request extends FormRequest
 {
-    private string $view;
-
-    public function __construct(private {{name}}Service $service, string $view = '{{name}}')
+    /**
+     * Determine if the user is authorized to make this request.
+     *
+     * @return bool
+     */
+    public function authorize(): bool
     {
-        $this->view = $view;
+        // Update this logic as per your requirements
+        return true;
     }
 
     /**
-     * Display a listing of the resource.
+     * Get the validation rules that apply to the request.
      *
-     * @param Request $request
-     * @return JsonResponse|\Illuminate\View\View
+     * @return array
      */
-    public function index(Request $request)
+    public function rules(): array
     {
-        $filters = $request->query('filters', []);
-        $sortBy = $request->query('sort_by', 'id');
-        $sortOrder = $request->query('sort_order', 'asc');
-        $perPage = $request->query('per_page', 10);
-
-        $data = $this->service->list($filters, $sortBy, $sortOrder, $perPage);
-
-        if ($request->expectsJson()) {
-            return response()->json([
-                'success' => true,
-                'data' => $data,
-                'message' => __('messages.list_success', ['model' => __('models.{{model}}')]),
-            ]);
-        }
-
-        return view("{$this->view}.index", compact('data'));
+        return [
+            // Define your validation rules here
+        ];
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Pre-validate input modifications before validation rules are applied.
      *
-     * @param {{name}}Request $request
-     * @return JsonResponse|\Illuminate\Http\RedirectResponse
+     * @return void
      */
-    public function store({{name}}Request $request)
+    protected function preValidation(): void
     {
-        $validated = $request->validated();
-
-        $record = $this->service->create($validated);
-
-        if ($request->expectsJson()) {
-            return response()->json([
-                'success' => true,
-                'data' => $record,
-                'message' => __('messages.create_success', ['model' => __('models.{{model}}')]),
-            ], 201);
-        }
-
-        return redirect()->route("{$this->view}.index")->with('success', __('messages.create_success', ['model' => __('models.{{model}}')]));
+        $this->merge([
+            // Modify or sanitize request input here
+            // e.g., 'field' => trim($this->input('field'))
+        ]);
     }
 
     /**
-     * Display the specified resource.
+     * After the validation rules have been applied, perform additional processing.
      *
-     * @param {{model}} ${{modelVariable}}
-     * @return JsonResponse|\Illuminate\View\View
+     * @return void
      */
-    public function show({{model}} ${{modelVariable}})
+    protected function postValidation(): void
     {
-        $record = $this->service->show(${{modelVariable}});
-
-        if (request()->expectsJson()) {
-            return response()->json([
-                'success' => true,
-                'data' => $record,
-                'message' => __('messages.show_success', ['model' => __('models.{{model}}')]),
-            ]);
-        }
-
-        return view("{$this->view}.show", compact('record'));
+        // Additional processing after validation
+        // e.g., set defaults, enrich validated data, etc.
     }
 
     /**
-     * Update the specified resource in storage.
+     * Override the prepareForValidation method to call preValidation.
      *
-     * @param {{name}}Request $request
-     * @param {{model}} ${{modelVariable}}
-     * @return JsonResponse|\Illuminate\Http\RedirectResponse
+     * @return void
      */
-    public function update({{name}}Request $request, {{model}} ${{modelVariable}})
+    protected function prepareForValidation(): void
     {
-        $validated = $request->validated();
-
-        $record = $this->service->update(${{modelVariable}}, $validated);
-
-        if ($request->expectsJson()) {
-            return response()->json([
-                'success' => true,
-                'data' => $record,
-                'message' => __('messages.update_success', ['model' => __('models.{{model}}')]),
-            ]);
-        }
-
-        return redirect()->route("{$this->view}.show", $record)->with('success', __('messages.update_success', ['model' => __('models.{{model}}')]));
+        $this->preValidation();
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Override the passedValidation method to call postValidation.
      *
-     * @param {{model}} ${{modelVariable}}
-     * @return JsonResponse|\Illuminate\Http\RedirectResponse
+     * @return void
      */
-    public function destroy({{model}} ${{modelVariable}})
+    protected function passedValidation(): void
     {
-        $this->service->delete(${{modelVariable}});
-
-        if (request()->expectsJson()) {
-            return response()->json([
-                'success' => true,
-                'message' => __('messages.delete_success', ['model' => __('models.{{model}}')]),
-            ]);
-        }
-
-        return redirect()->route("{$this->view}.index")->with('success', __('messages.delete_success', ['model' => __('models.{{model}}')]));
+        $this->postValidation();
     }
 }
