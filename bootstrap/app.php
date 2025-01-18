@@ -13,8 +13,8 @@ return Application::configure(basePath: dirname(__DIR__))
     )
     ->withMiddleware(function (Middleware $middleware) {
         $middleware->append([
-            \App\Http\Middleware\ContentSecurityPolicyMiddleware::class,
-            \App\Http\Middleware\SecurityHeadersMiddleware::class,
+            // \App\Http\Middleware\ContentSecurityPolicyMiddleware::class,
+            // \App\Http\Middleware\SecurityHeadersMiddleware::class,
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions) {
