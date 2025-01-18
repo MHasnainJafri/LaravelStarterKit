@@ -11,7 +11,7 @@ ContentSecurityPolicyMiddleware
 
 php artisan update:model User --table=users
 
-
+php artisan make:service V1/Business/Business --model=Business  --api --view
 
 
 ## Requirements
