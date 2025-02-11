@@ -1,18 +1,8 @@
-# Laravel Project
+# Laravel Project Starter Kit
 
-This is a Laravel project that integrates a variety of useful packages to enhance functionality, improve development workflows, and support additional features. Below is an overview of the packages included in this project and how to use them.
+This is a Laravel project that integrates a variety of useful packages to enhance functionality, improve development workflows, and support additional features. Below is an overview of the packages and custom Artisan commands included in this starter kit, and how to use them effectively in your Laravel applications.
 
-for caching and securing .htaccess
-PWA
-security Middleware
-
-SecurityHeadersMiddleware
-ContentSecurityPolicyMiddleware
-
-php artisan update:model User --table=users
-
-php artisan make:service V1/Business/Business --model=Business  --api --view
-
+---
 
 ## Requirements
 
@@ -22,18 +12,20 @@ Before running the project, make sure you have the following installed:
 - Composer
 - MySQL or any database system supported by Laravel
 - Node.js and NPM (for asset compilation)
-- Laravel 10.x or later
 
 ## Installation
 
 Clone the repository and install the necessary dependencies:
 
 ```bash
-git clone https://github.com/your-repository.git
-cd your-project-directory
+git clone https://github.com/MHasnainJafri/LaravelStarterKit.git
+cd LaravelStarterKit
 composer install
 npm install
 ```
+
+---
+
 
 ### Environment Configuration
 
@@ -61,11 +53,105 @@ composer run dev
 
 This will set up the environment and start the server.
 
-## Installed Packages
+## Custom Artisan Commands
+
+This starter kit includes custom Artisan commands for generating boilerplate code and working with models and services efficiently.
+
+### 1. **Updating Models with Relations, Fillables, and Casts**
+
+You can use the following command to quickly update your model with the table structure, relationships, fillables, and casts:
+
+```bash
+php artisan update:model User --table=users
+```
+
+- **`--table=users`**: Specifies the database table for the model.
+- This command will automatically generate the relationships, fillable attributes, and casts for the specified model based on the corresponding database table.
+
+### 2. **Service Pattern Generation Command**
+
+To help you generate a well-structured service pattern, you can use the `make:service-pattern` Artisan command. This command scaffolds a service structure that includes a model, controller, service, request, and response classes. You can also customize it with options for API or admin views.
+
+#### Syntax:
+
+```bash
+php artisan make:service-pattern 
+    {name : The name of the service (e.g., UserService)} 
+    {--model= : The name of the model (e.g., User)} 
+    {--table= : The name of the table (e.g., users)} 
+    {--foreignKeys= : Comma-separated foreign keys (e.g., role_id,company_id)} 
+    {--api : Generate API-specific controller and service}
+    {--view : Generate API-specific controller and service}
+```
+
+#### Example usage:
+
+```bash
+php artisan make:service-pattern BusinessService --model=Business --api --view
+```
+
+This will:
+- Create a **BusinessService** class.
+- Generate a **Business** model.
+- Create a controller and service tailored for **API** use.
+- Add admin panel views if the `--view` flag is passed.
+
+The command automatically generates files and structures that follow best practices for API or admin panel services, allowing you to focus on implementing business logic.
+
+---
+
+## Service Pattern File Structure
+
+The `make:service-pattern` command will generate the following structure for each service:
+
+- **Model** (`app/Models/ModelName.php`)
+- **Controller** (`app/Http/Controllers/Api/ModelNameController.php` or `app/Http/Controllers/Admin/ModelNameController.php` based on the `--api` or `--view` flag)
+- **Service** (`app/Services/ModelNameService.php`)
+- **Request** (`app/Http/Requests/ModelNameRequest.php`)
+- **Response** (`app/Http/Responses/ModelNameResponse.php`)
+
+This pattern ensures a clear separation of concerns between different components and follows the standard Laravel structure.
+
+---
+
+## Key Features and Packages
+---
+### 1. **Caching and Securing .htaccess**
+
+This starter kit includes configurations to handle caching and secure your `.htaccess` file. These are useful for enhancing security and improving performance in your application.
+
+- **Caching:** Automatically caches routes, views, and configuration settings for faster loading times.
+- **Securing .htaccess:** Protects sensitive areas of the application by automatically configuring .htaccess rules for security.
+
+### 2. **Progressive Web App (PWA) Support**
+
+This project integrates PWA functionality for improved performance on mobile devices and offline capabilities. By leveraging service workers and a manifest file, your Laravel application can function as a native app on supported browsers.
+
+---
+
+## Custom Middleware
+
+The starter kit comes with some custom security middleware to improve application security by enforcing HTTP security headers.
+
+### 1. **SecurityHeadersMiddleware**
+This middleware adds various HTTP security headers to your responses to protect against common security vulnerabilities.
+
+### 2. **ContentSecurityPolicyMiddleware**
+This middleware helps in implementing a Content Security Policy (CSP) to mitigate the risks of cross-site scripting (XSS) and other malicious attacks. It allows you to define where resources can be loaded from.
+
+
+## Conclusion
+
+This Laravel starter kit is designed to speed up development by providing common features and custom Artisan commands that generate well-structured code. The security-focused middleware and PWA integration further enhance the functionality of your application. By leveraging the included commands and patterns, you can quickly scaffold out new services, models, and controllers to help keep your codebase clean and maintainable.
+
+
+
+## Some Important Packages 
+#### Not installed in repo but usefull to know
 
 The following Laravel packages are included in the project:
 
-### **1. Laravel IDE Helper**
+### **1. Laravel IDE Helper [Installed]**
 - Generates IDE helper files to improve autocompletion and code suggestions.
   ```bash
   php artisan ide-helper:generate
@@ -83,7 +169,7 @@ The following Laravel packages are included in the project:
   use Cviebrock\EloquentSluggable\Sluggable;
   ```
 
-### **4. Socialite**
+### **4. Socialite [Installed]**
 - Handles authentication via social networks such as Facebook, Google, GitHub, etc.
 
 ### **5. Laravel Telescope**
@@ -92,7 +178,7 @@ The following Laravel packages are included in the project:
   php artisan telescope:install
   ```
 
-### **6. Orchestral Testbench**
+### **6. Orchestral Testbench [Installed]**
 - Facilitates the testing of Laravel packages by providing a testing environment for packages.
 
 ### **7. spatie/laravel-activitylog**
@@ -110,8 +196,8 @@ The following Laravel packages are included in the project:
 ### **9. archtechx/tenancy**
 - Provides multi-tenancy support in Laravel applications, enabling data isolation for different tenants.
 
-### **10. AndreasElia/laravel-api-to-postman**
-- Exports your Laravel API routes to a Postman collection for easier API testing and documentation.
+### **11. mhasnainjafri/restapikit [Installed]**
+- A set of tools to make building RESTful APIs easier within Laravel.
 
 ### **11. binarcode/laravel-RestApiKit**
 - A set of tools to make building RESTful APIs easier within Laravel.
@@ -173,8 +259,7 @@ The following Laravel packages are included in the project:
 ### **25. spatie/laravel-server-side-rendering**
 - Adds support for server-side rendering of JavaScript within your Laravel application.
 
-### **26. laraveldaily/laravel-invoices**
-- Generates invoices and PDFs within your Laravel application, including customizable templates.
+
 
 ## Development Tools
 
@@ -197,7 +282,3 @@ For testing modules, use the Orchestral Testbench package.
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
----
-
-This README covers all of the packages you mentioned and provides a brief overview of each package's purpose and usage. Make sure to replace placeholders like `your-repository.git` with the actual repository link, and customize it as necessary for your project.
