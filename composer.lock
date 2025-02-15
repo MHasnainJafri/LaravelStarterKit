@@ -2809,16 +2809,16 @@
         },
         {
             "name": "mhasnainjafri/restapikit",
-            "version": "v1.0.0",
+            "version": "v1.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/MHasnainJafri/RestApiKit.git",
-                "reference": "d428ac1559dd9da077876cc6cb511e046f4b1231"
+                "reference": "1e76d2132e1fa6c5eacc4684403b5197ebd1e30a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/MHasnainJafri/RestApiKit/zipball/d428ac1559dd9da077876cc6cb511e046f4b1231",
-                "reference": "d428ac1559dd9da077876cc6cb511e046f4b1231",
+                "url": "https://api.github.com/repos/MHasnainJafri/RestApiKit/zipball/1e76d2132e1fa6c5eacc4684403b5197ebd1e30a",
+                "reference": "1e76d2132e1fa6c5eacc4684403b5197ebd1e30a",
                 "shasum": ""
             },
             "require": {
@@ -2870,9 +2870,9 @@
             ],
             "support": {
                 "issues": "https://github.com/MHasnainJafri/RestApiKit/issues",
-                "source": "https://github.com/MHasnainJafri/RestApiKit/tree/v1.0.0"
+                "source": "https://github.com/MHasnainJafri/RestApiKit/tree/v1.0.2"
             },
-            "time": "2025-01-15T17:44:24+00:00"
+            "time": "2025-02-04T06:25:42+00:00"
         },
         {
             "name": "monolog/monolog",

@@ -1,3 +1,4 @@
+<?php
 return [
     'list' => ':model list retrieved successfully.',
     'create' => ':model created successfully.',

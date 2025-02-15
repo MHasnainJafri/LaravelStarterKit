@@ -64,3 +64,8 @@ Route::restifyAuth();
 //         return User::all();
 //     }, 30); // Cache for 30 minutes
 // }
+
+
+// work with scope also
+// GET /users?filters[active]=1
+// GET /users?filters[hasRole]=admin
