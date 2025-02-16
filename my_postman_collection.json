@@ -1,0 +1,2072 @@
+{
+    "info": {
+        "name": "Laravel API Collection",
+        "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
+    },
+    "item": [
+        {
+            "name": "login",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "body": {
+                    "mode": "raw",
+                    "raw": "[]"
+                },
+                "url": {
+                    "raw": "{{base_url}}\/login",
+                    "host": [
+                        "{{base_url}}"
+                    ],
+                    "path": [
+                        "login"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "login",
+            "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                    "mode": "raw",
+                    "raw": "[]"
+                },
+                "url": {
+                    "raw": "{{base_url}}\/login",
+                    "host": [
+                        "{{base_url}}"
+                    ],
+                    "path": [
+                        "login"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "logout",
+            "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                    "mode": "raw",
+                    "raw": "[]"
+                },
+                "url": {
+                    "raw": "{{base_url}}\/logout",
+                    "host": [
+                        "{{base_url}}"
+                    ],
+                    "path": [
+                        "logout"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "forgot-password",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "body": {
+                    "mode": "raw",
+                    "raw": "[]"
+                },
+                "url": {
+                    "raw": "{{base_url}}\/forgot-password",
+                    "host": [
+                        "{{base_url}}"
+                    ],
+                    "path": [
+                        "forgot-password"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "reset-password\/{token}",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "body": {
+                    "mode": "raw",
+                    "raw": "[]"
+                },
+                "url": {
+                    "raw": "{{base_url}}\/reset-password\/{token}",
+                    "host": [
+                        "{{base_url}}"
+                    ],
+                    "path": [
+                        "reset-password",
+                        "{token}"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "forgot-password",
+            "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                    "mode": "raw",
+                    "raw": "[]"
+                },
+                "url": {
+                    "raw": "{{base_url}}\/forgot-password",
+                    "host": [
+                        "{{base_url}}"
+                    ],
+                    "path": [
+                        "forgot-password"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "reset-password",
+            "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                    "mode": "raw",
+                    "raw": "[]"
+                },
+                "url": {
+                    "raw": "{{base_url}}\/reset-password",
+                    "host": [
+                        "{{base_url}}"
+                    ],
+                    "path": [
+                        "reset-password"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "register",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "body": {
+                    "mode": "raw",
+                    "raw": "[]"
+                },
+                "url": {
+                    "raw": "{{base_url}}\/register",
+                    "host": [
+                        "{{base_url}}"
+                    ],
+                    "path": [
+                        "register"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "register",
+            "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                    "mode": "raw",
+                    "raw": "[]"
+                },
+                "url": {
+                    "raw": "{{base_url}}\/register",
+                    "host": [
+                        "{{base_url}}"
+                    ],
+                    "path": [
+                        "register"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "user\/profile-information",
+            "request": {
+                "method": "PUT",
+                "header": [],
+                "body": {
+                    "mode": "raw",
+                    "raw": "[]"
+                },
+                "url": {
+                    "raw": "{{base_url}}\/user\/profile-information",
+                    "host": [
+                        "{{base_url}}"
+                    ],
+                    "path": [
+                        "user",
+                        "profile-information"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "user\/password",
+            "request": {
+                "method": "PUT",
+                "header": [],
+                "body": {
+                    "mode": "raw",
+                    "raw": "[]"
+                },
+                "url": {
+                    "raw": "{{base_url}}\/user\/password",
+                    "host": [
+                        "{{base_url}}"
+                    ],
+                    "path": [
+                        "user",
+                        "password"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "user\/confirm-password",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "body": {
+                    "mode": "raw",
+                    "raw": "[]"
+                },
+                "url": {
+                    "raw": "{{base_url}}\/user\/confirm-password",
+                    "host": [
+                        "{{base_url}}"
+                    ],
+                    "path": [
+                        "user",
+                        "confirm-password"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "user\/confirmed-password-status",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "body": {
+                    "mode": "raw",
+                    "raw": "[]"
+                },
+                "url": {
+                    "raw": "{{base_url}}\/user\/confirmed-password-status",
+                    "host": [
+                        "{{base_url}}"
+                    ],
+                    "path": [
+                        "user",
+                        "confirmed-password-status"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "user\/confirm-password",
+            "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                    "mode": "raw",
+                    "raw": "[]"
+                },
+                "url": {
+                    "raw": "{{base_url}}\/user\/confirm-password",
+                    "host": [
+                        "{{base_url}}"
+                    ],
+                    "path": [
+                        "user",
+                        "confirm-password"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "two-factor-challenge",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "body": {
+                    "mode": "raw",
+                    "raw": "[]"
+                },
+                "url": {
+                    "raw": "{{base_url}}\/two-factor-challenge",
+                    "host": [
+                        "{{base_url}}"
+                    ],
+                    "path": [
+                        "two-factor-challenge"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "two-factor-challenge",
+            "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                    "mode": "raw",
+                    "raw": "[]"
+                },
+                "url": {
+                    "raw": "{{base_url}}\/two-factor-challenge",
+                    "host": [
+                        "{{base_url}}"
+                    ],
+                    "path": [
+                        "two-factor-challenge"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "user\/two-factor-authentication",
+            "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                    "mode": "raw",
+                    "raw": "[]"
+                },
+                "url": {
+                    "raw": "{{base_url}}\/user\/two-factor-authentication",
+                    "host": [
+                        "{{base_url}}"
+                    ],
+                    "path": [
+                        "user",
+                        "two-factor-authentication"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "user\/confirmed-two-factor-authentication",
+            "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                    "mode": "raw",
+                    "raw": "[]"
+                },
+                "url": {
+                    "raw": "{{base_url}}\/user\/confirmed-two-factor-authentication",
+                    "host": [
+                        "{{base_url}}"
+                    ],
+                    "path": [
+                        "user",
+                        "confirmed-two-factor-authentication"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "user\/two-factor-authentication",
+            "request": {
+                "method": "DELETE",
+                "header": [],
+                "body": {
+                    "mode": "raw",
+                    "raw": "[]"
+                },
+                "url": {
+                    "raw": "{{base_url}}\/user\/two-factor-authentication",
+                    "host": [
+                        "{{base_url}}"
+                    ],
+                    "path": [
+                        "user",
+                        "two-factor-authentication"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "user\/two-factor-qr-code",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "body": {
+                    "mode": "raw",
+                    "raw": "[]"
+                },
+                "url": {
+                    "raw": "{{base_url}}\/user\/two-factor-qr-code",
+                    "host": [
+                        "{{base_url}}"
+                    ],
+                    "path": [
+                        "user",
+                        "two-factor-qr-code"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "user\/two-factor-secret-key",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "body": {
+                    "mode": "raw",
+                    "raw": "[]"
+                },
+                "url": {
+                    "raw": "{{base_url}}\/user\/two-factor-secret-key",
+                    "host": [
+                        "{{base_url}}"
+                    ],
+                    "path": [
+                        "user",
+                        "two-factor-secret-key"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "user\/two-factor-recovery-codes",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "body": {
+                    "mode": "raw",
+                    "raw": "[]"
+                },
+                "url": {
+                    "raw": "{{base_url}}\/user\/two-factor-recovery-codes",
+                    "host": [
+                        "{{base_url}}"
+                    ],
+                    "path": [
+                        "user",
+                        "two-factor-recovery-codes"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "user\/two-factor-recovery-codes",
+            "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                    "mode": "raw",
+                    "raw": "[]"
+                },
+                "url": {
+                    "raw": "{{base_url}}\/user\/two-factor-recovery-codes",
+                    "host": [
+                        "{{base_url}}"
+                    ],
+                    "path": [
+                        "user",
+                        "two-factor-recovery-codes"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "oauth\/token",
+            "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                    "mode": "raw",
+                    "raw": "[]"
+                },
+                "url": {
+                    "raw": "{{base_url}}\/oauth\/token",
+                    "host": [
+                        "{{base_url}}"
+                    ],
+                    "path": [
+                        "oauth",
+                        "token"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "oauth\/authorize",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "body": {
+                    "mode": "raw",
+                    "raw": "[]"
+                },
+                "url": {
+                    "raw": "{{base_url}}\/oauth\/authorize",
+                    "host": [
+                        "{{base_url}}"
+                    ],
+                    "path": [
+                        "oauth",
+                        "authorize"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "oauth\/token\/refresh",
+            "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                    "mode": "raw",
+                    "raw": "[]"
+                },
+                "url": {
+                    "raw": "{{base_url}}\/oauth\/token\/refresh",
+                    "host": [
+                        "{{base_url}}"
+                    ],
+                    "path": [
+                        "oauth",
+                        "token",
+                        "refresh"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "oauth\/authorize",
+            "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                    "mode": "raw",
+                    "raw": "[]"
+                },
+                "url": {
+                    "raw": "{{base_url}}\/oauth\/authorize",
+                    "host": [
+                        "{{base_url}}"
+                    ],
+                    "path": [
+                        "oauth",
+                        "authorize"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "oauth\/authorize",
+            "request": {
+                "method": "DELETE",
+                "header": [],
+                "body": {
+                    "mode": "raw",
+                    "raw": "[]"
+                },
+                "url": {
+                    "raw": "{{base_url}}\/oauth\/authorize",
+                    "host": [
+                        "{{base_url}}"
+                    ],
+                    "path": [
+                        "oauth",
+                        "authorize"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "oauth\/tokens",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "body": {
+                    "mode": "raw",
+                    "raw": "[]"
+                },
+                "url": {
+                    "raw": "{{base_url}}\/oauth\/tokens",
+                    "host": [
+                        "{{base_url}}"
+                    ],
+                    "path": [
+                        "oauth",
+                        "tokens"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "oauth\/tokens\/{token_id}",
+            "request": {
+                "method": "DELETE",
+                "header": [],
+                "body": {
+                    "mode": "raw",
+                    "raw": "[]"
+                },
+                "url": {
+                    "raw": "{{base_url}}\/oauth\/tokens\/{token_id}",
+                    "host": [
+                        "{{base_url}}"
+                    ],
+                    "path": [
+                        "oauth",
+                        "tokens",
+                        "{token_id}"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "oauth\/clients",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "body": {
+                    "mode": "raw",
+                    "raw": "[]"
+                },
+                "url": {
+                    "raw": "{{base_url}}\/oauth\/clients",
+                    "host": [
+                        "{{base_url}}"
+                    ],
+                    "path": [
+                        "oauth",
+                        "clients"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "oauth\/clients",
+            "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                    "mode": "raw",
+                    "raw": "[]"
+                },
+                "url": {
+                    "raw": "{{base_url}}\/oauth\/clients",
+                    "host": [
+                        "{{base_url}}"
+                    ],
+                    "path": [
+                        "oauth",
+                        "clients"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "oauth\/clients\/{client_id}",
+            "request": {
+                "method": "PUT",
+                "header": [],
+                "body": {
+                    "mode": "raw",
+                    "raw": "[]"
+                },
+                "url": {
+                    "raw": "{{base_url}}\/oauth\/clients\/{client_id}",
+                    "host": [
+                        "{{base_url}}"
+                    ],
+                    "path": [
+                        "oauth",
+                        "clients",
+                        "{client_id}"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "oauth\/clients\/{client_id}",
+            "request": {
+                "method": "DELETE",
+                "header": [],
+                "body": {
+                    "mode": "raw",
+                    "raw": "[]"
+                },
+                "url": {
+                    "raw": "{{base_url}}\/oauth\/clients\/{client_id}",
+                    "host": [
+                        "{{base_url}}"
+                    ],
+                    "path": [
+                        "oauth",
+                        "clients",
+                        "{client_id}"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "oauth\/scopes",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "body": {
+                    "mode": "raw",
+                    "raw": "[]"
+                },
+                "url": {
+                    "raw": "{{base_url}}\/oauth\/scopes",
+                    "host": [
+                        "{{base_url}}"
+                    ],
+                    "path": [
+                        "oauth",
+                        "scopes"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "oauth\/personal-access-tokens",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "body": {
+                    "mode": "raw",
+                    "raw": "[]"
+                },
+                "url": {
+                    "raw": "{{base_url}}\/oauth\/personal-access-tokens",
+                    "host": [
+                        "{{base_url}}"
+                    ],
+                    "path": [
+                        "oauth",
+                        "personal-access-tokens"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "oauth\/personal-access-tokens",
+            "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                    "mode": "raw",
+                    "raw": "[]"
+                },
+                "url": {
+                    "raw": "{{base_url}}\/oauth\/personal-access-tokens",
+                    "host": [
+                        "{{base_url}}"
+                    ],
+                    "path": [
+                        "oauth",
+                        "personal-access-tokens"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "oauth\/personal-access-tokens\/{token_id}",
+            "request": {
+                "method": "DELETE",
+                "header": [],
+                "body": {
+                    "mode": "raw",
+                    "raw": "[]"
+                },
+                "url": {
+                    "raw": "{{base_url}}\/oauth\/personal-access-tokens\/{token_id}",
+                    "host": [
+                        "{{base_url}}"
+                    ],
+                    "path": [
+                        "oauth",
+                        "personal-access-tokens",
+                        "{token_id}"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "telescope\/telescope-api\/mail",
+            "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                    "mode": "raw",
+                    "raw": "[]"
+                },
+                "url": {
+                    "raw": "{{base_url}}\/telescope\/telescope-api\/mail",
+                    "host": [
+                        "{{base_url}}"
+                    ],
+                    "path": [
+                        "telescope",
+                        "telescope-api",
+                        "mail"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "telescope\/telescope-api\/mail\/{telescopeEntryId}",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "body": {
+                    "mode": "raw",
+                    "raw": "[]"
+                },
+                "url": {
+                    "raw": "{{base_url}}\/telescope\/telescope-api\/mail\/{telescopeEntryId}",
+                    "host": [
+                        "{{base_url}}"
+                    ],
+                    "path": [
+                        "telescope",
+                        "telescope-api",
+                        "mail",
+                        "{telescopeEntryId}"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "telescope\/telescope-api\/mail\/{telescopeEntryId}\/preview",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "body": {
+                    "mode": "raw",
+                    "raw": "[]"
+                },
+                "url": {
+                    "raw": "{{base_url}}\/telescope\/telescope-api\/mail\/{telescopeEntryId}\/preview",
+                    "host": [
+                        "{{base_url}}"
+                    ],
+                    "path": [
+                        "telescope",
+                        "telescope-api",
+                        "mail",
+                        "{telescopeEntryId}",
+                        "preview"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "telescope\/telescope-api\/mail\/{telescopeEntryId}\/download",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "body": {
+                    "mode": "raw",
+                    "raw": "[]"
+                },
+                "url": {
+                    "raw": "{{base_url}}\/telescope\/telescope-api\/mail\/{telescopeEntryId}\/download",
+                    "host": [
+                        "{{base_url}}"
+                    ],
+                    "path": [
+                        "telescope",
+                        "telescope-api",
+                        "mail",
+                        "{telescopeEntryId}",
+                        "download"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "telescope\/telescope-api\/exceptions",
+            "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                    "mode": "raw",
+                    "raw": "[]"
+                },
+                "url": {
+                    "raw": "{{base_url}}\/telescope\/telescope-api\/exceptions",
+                    "host": [
+                        "{{base_url}}"
+                    ],
+                    "path": [
+                        "telescope",
+                        "telescope-api",
+                        "exceptions"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "telescope\/telescope-api\/exceptions\/{telescopeEntryId}",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "body": {
+                    "mode": "raw",
+                    "raw": "[]"
+                },
+                "url": {
+                    "raw": "{{base_url}}\/telescope\/telescope-api\/exceptions\/{telescopeEntryId}",
+                    "host": [
+                        "{{base_url}}"
+                    ],
+                    "path": [
+                        "telescope",
+                        "telescope-api",
+                        "exceptions",
+                        "{telescopeEntryId}"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "telescope\/telescope-api\/exceptions\/{telescopeEntryId}",
+            "request": {
+                "method": "PUT",
+                "header": [],
+                "body": {
+                    "mode": "raw",
+                    "raw": "[]"
+                },
+                "url": {
+                    "raw": "{{base_url}}\/telescope\/telescope-api\/exceptions\/{telescopeEntryId}",
+                    "host": [
+                        "{{base_url}}"
+                    ],
+                    "path": [
+                        "telescope",
+                        "telescope-api",
+                        "exceptions",
+                        "{telescopeEntryId}"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "telescope\/telescope-api\/dumps",
+            "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                    "mode": "raw",
+                    "raw": "[]"
+                },
+                "url": {
+                    "raw": "{{base_url}}\/telescope\/telescope-api\/dumps",
+                    "host": [
+                        "{{base_url}}"
+                    ],
+                    "path": [
+                        "telescope",
+                        "telescope-api",
+                        "dumps"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "telescope\/telescope-api\/logs",
+            "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                    "mode": "raw",
+                    "raw": "[]"
+                },
+                "url": {
+                    "raw": "{{base_url}}\/telescope\/telescope-api\/logs",
+                    "host": [
+                        "{{base_url}}"
+                    ],
+                    "path": [
+                        "telescope",
+                        "telescope-api",
+                        "logs"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "telescope\/telescope-api\/logs\/{telescopeEntryId}",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "body": {
+                    "mode": "raw",
+                    "raw": "[]"
+                },
+                "url": {
+                    "raw": "{{base_url}}\/telescope\/telescope-api\/logs\/{telescopeEntryId}",
+                    "host": [
+                        "{{base_url}}"
+                    ],
+                    "path": [
+                        "telescope",
+                        "telescope-api",
+                        "logs",
+                        "{telescopeEntryId}"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "telescope\/telescope-api\/notifications",
+            "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                    "mode": "raw",
+                    "raw": "[]"
+                },
+                "url": {
+                    "raw": "{{base_url}}\/telescope\/telescope-api\/notifications",
+                    "host": [
+                        "{{base_url}}"
+                    ],
+                    "path": [
+                        "telescope",
+                        "telescope-api",
+                        "notifications"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "telescope\/telescope-api\/notifications\/{telescopeEntryId}",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "body": {
+                    "mode": "raw",
+                    "raw": "[]"
+                },
+                "url": {
+                    "raw": "{{base_url}}\/telescope\/telescope-api\/notifications\/{telescopeEntryId}",
+                    "host": [
+                        "{{base_url}}"
+                    ],
+                    "path": [
+                        "telescope",
+                        "telescope-api",
+                        "notifications",
+                        "{telescopeEntryId}"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "telescope\/telescope-api\/jobs",
+            "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                    "mode": "raw",
+                    "raw": "[]"
+                },
+                "url": {
+                    "raw": "{{base_url}}\/telescope\/telescope-api\/jobs",
+                    "host": [
+                        "{{base_url}}"
+                    ],
+                    "path": [
+                        "telescope",
+                        "telescope-api",
+                        "jobs"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "telescope\/telescope-api\/jobs\/{telescopeEntryId}",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "body": {
+                    "mode": "raw",
+                    "raw": "[]"
+                },
+                "url": {
+                    "raw": "{{base_url}}\/telescope\/telescope-api\/jobs\/{telescopeEntryId}",
+                    "host": [
+                        "{{base_url}}"
+                    ],
+                    "path": [
+                        "telescope",
+                        "telescope-api",
+                        "jobs",
+                        "{telescopeEntryId}"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "telescope\/telescope-api\/batches",
+            "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                    "mode": "raw",
+                    "raw": "[]"
+                },
+                "url": {
+                    "raw": "{{base_url}}\/telescope\/telescope-api\/batches",
+                    "host": [
+                        "{{base_url}}"
+                    ],
+                    "path": [
+                        "telescope",
+                        "telescope-api",
+                        "batches"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "telescope\/telescope-api\/batches\/{telescopeEntryId}",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "body": {
+                    "mode": "raw",
+                    "raw": "[]"
+                },
+                "url": {
+                    "raw": "{{base_url}}\/telescope\/telescope-api\/batches\/{telescopeEntryId}",
+                    "host": [
+                        "{{base_url}}"
+                    ],
+                    "path": [
+                        "telescope",
+                        "telescope-api",
+                        "batches",
+                        "{telescopeEntryId}"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "telescope\/telescope-api\/events",
+            "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                    "mode": "raw",
+                    "raw": "[]"
+                },
+                "url": {
+                    "raw": "{{base_url}}\/telescope\/telescope-api\/events",
+                    "host": [
+                        "{{base_url}}"
+                    ],
+                    "path": [
+                        "telescope",
+                        "telescope-api",
+                        "events"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "telescope\/telescope-api\/events\/{telescopeEntryId}",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "body": {
+                    "mode": "raw",
+                    "raw": "[]"
+                },
+                "url": {
+                    "raw": "{{base_url}}\/telescope\/telescope-api\/events\/{telescopeEntryId}",
+                    "host": [
+                        "{{base_url}}"
+                    ],
+                    "path": [
+                        "telescope",
+                        "telescope-api",
+                        "events",
+                        "{telescopeEntryId}"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "telescope\/telescope-api\/gates",
+            "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                    "mode": "raw",
+                    "raw": "[]"
+                },
+                "url": {
+                    "raw": "{{base_url}}\/telescope\/telescope-api\/gates",
+                    "host": [
+                        "{{base_url}}"
+                    ],
+                    "path": [
+                        "telescope",
+                        "telescope-api",
+                        "gates"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "telescope\/telescope-api\/gates\/{telescopeEntryId}",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "body": {
+                    "mode": "raw",
+                    "raw": "[]"
+                },
+                "url": {
+                    "raw": "{{base_url}}\/telescope\/telescope-api\/gates\/{telescopeEntryId}",
+                    "host": [
+                        "{{base_url}}"
+                    ],
+                    "path": [
+                        "telescope",
+                        "telescope-api",
+                        "gates",
+                        "{telescopeEntryId}"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "telescope\/telescope-api\/cache",
+            "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                    "mode": "raw",
+                    "raw": "[]"
+                },
+                "url": {
+                    "raw": "{{base_url}}\/telescope\/telescope-api\/cache",
+                    "host": [
+                        "{{base_url}}"
+                    ],
+                    "path": [
+                        "telescope",
+                        "telescope-api",
+                        "cache"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "telescope\/telescope-api\/cache\/{telescopeEntryId}",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "body": {
+                    "mode": "raw",
+                    "raw": "[]"
+                },
+                "url": {
+                    "raw": "{{base_url}}\/telescope\/telescope-api\/cache\/{telescopeEntryId}",
+                    "host": [
+                        "{{base_url}}"
+                    ],
+                    "path": [
+                        "telescope",
+                        "telescope-api",
+                        "cache",
+                        "{telescopeEntryId}"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "telescope\/telescope-api\/queries",
+            "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                    "mode": "raw",
+                    "raw": "[]"
+                },
+                "url": {
+                    "raw": "{{base_url}}\/telescope\/telescope-api\/queries",
+                    "host": [
+                        "{{base_url}}"
+                    ],
+                    "path": [
+                        "telescope",
+                        "telescope-api",
+                        "queries"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "telescope\/telescope-api\/queries\/{telescopeEntryId}",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "body": {
+                    "mode": "raw",
+                    "raw": "[]"
+                },
+                "url": {
+                    "raw": "{{base_url}}\/telescope\/telescope-api\/queries\/{telescopeEntryId}",
+                    "host": [
+                        "{{base_url}}"
+                    ],
+                    "path": [
+                        "telescope",
+                        "telescope-api",
+                        "queries",
+                        "{telescopeEntryId}"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "telescope\/telescope-api\/models",
+            "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                    "mode": "raw",
+                    "raw": "[]"
+                },
+                "url": {
+                    "raw": "{{base_url}}\/telescope\/telescope-api\/models",
+                    "host": [
+                        "{{base_url}}"
+                    ],
+                    "path": [
+                        "telescope",
+                        "telescope-api",
+                        "models"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "telescope\/telescope-api\/models\/{telescopeEntryId}",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "body": {
+                    "mode": "raw",
+                    "raw": "[]"
+                },
+                "url": {
+                    "raw": "{{base_url}}\/telescope\/telescope-api\/models\/{telescopeEntryId}",
+                    "host": [
+                        "{{base_url}}"
+                    ],
+                    "path": [
+                        "telescope",
+                        "telescope-api",
+                        "models",
+                        "{telescopeEntryId}"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "telescope\/telescope-api\/requests",
+            "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                    "mode": "raw",
+                    "raw": "[]"
+                },
+                "url": {
+                    "raw": "{{base_url}}\/telescope\/telescope-api\/requests",
+                    "host": [
+                        "{{base_url}}"
+                    ],
+                    "path": [
+                        "telescope",
+                        "telescope-api",
+                        "requests"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "telescope\/telescope-api\/requests\/{telescopeEntryId}",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "body": {
+                    "mode": "raw",
+                    "raw": "[]"
+                },
+                "url": {
+                    "raw": "{{base_url}}\/telescope\/telescope-api\/requests\/{telescopeEntryId}",
+                    "host": [
+                        "{{base_url}}"
+                    ],
+                    "path": [
+                        "telescope",
+                        "telescope-api",
+                        "requests",
+                        "{telescopeEntryId}"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "telescope\/telescope-api\/views",
+            "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                    "mode": "raw",
+                    "raw": "[]"
+                },
+                "url": {
+                    "raw": "{{base_url}}\/telescope\/telescope-api\/views",
+                    "host": [
+                        "{{base_url}}"
+                    ],
+                    "path": [
+                        "telescope",
+                        "telescope-api",
+                        "views"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "telescope\/telescope-api\/views\/{telescopeEntryId}",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "body": {
+                    "mode": "raw",
+                    "raw": "[]"
+                },
+                "url": {
+                    "raw": "{{base_url}}\/telescope\/telescope-api\/views\/{telescopeEntryId}",
+                    "host": [
+                        "{{base_url}}"
+                    ],
+                    "path": [
+                        "telescope",
+                        "telescope-api",
+                        "views",
+                        "{telescopeEntryId}"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "telescope\/telescope-api\/commands",
+            "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                    "mode": "raw",
+                    "raw": "[]"
+                },
+                "url": {
+                    "raw": "{{base_url}}\/telescope\/telescope-api\/commands",
+                    "host": [
+                        "{{base_url}}"
+                    ],
+                    "path": [
+                        "telescope",
+                        "telescope-api",
+                        "commands"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "telescope\/telescope-api\/commands\/{telescopeEntryId}",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "body": {
+                    "mode": "raw",
+                    "raw": "[]"
+                },
+                "url": {
+                    "raw": "{{base_url}}\/telescope\/telescope-api\/commands\/{telescopeEntryId}",
+                    "host": [
+                        "{{base_url}}"
+                    ],
+                    "path": [
+                        "telescope",
+                        "telescope-api",
+                        "commands",
+                        "{telescopeEntryId}"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "telescope\/telescope-api\/schedule",
+            "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                    "mode": "raw",
+                    "raw": "[]"
+                },
+                "url": {
+                    "raw": "{{base_url}}\/telescope\/telescope-api\/schedule",
+                    "host": [
+                        "{{base_url}}"
+                    ],
+                    "path": [
+                        "telescope",
+                        "telescope-api",
+                        "schedule"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "telescope\/telescope-api\/schedule\/{telescopeEntryId}",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "body": {
+                    "mode": "raw",
+                    "raw": "[]"
+                },
+                "url": {
+                    "raw": "{{base_url}}\/telescope\/telescope-api\/schedule\/{telescopeEntryId}",
+                    "host": [
+                        "{{base_url}}"
+                    ],
+                    "path": [
+                        "telescope",
+                        "telescope-api",
+                        "schedule",
+                        "{telescopeEntryId}"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "telescope\/telescope-api\/redis",
+            "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                    "mode": "raw",
+                    "raw": "[]"
+                },
+                "url": {
+                    "raw": "{{base_url}}\/telescope\/telescope-api\/redis",
+                    "host": [
+                        "{{base_url}}"
+                    ],
+                    "path": [
+                        "telescope",
+                        "telescope-api",
+                        "redis"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "telescope\/telescope-api\/redis\/{telescopeEntryId}",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "body": {
+                    "mode": "raw",
+                    "raw": "[]"
+                },
+                "url": {
+                    "raw": "{{base_url}}\/telescope\/telescope-api\/redis\/{telescopeEntryId}",
+                    "host": [
+                        "{{base_url}}"
+                    ],
+                    "path": [
+                        "telescope",
+                        "telescope-api",
+                        "redis",
+                        "{telescopeEntryId}"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "telescope\/telescope-api\/client-requests",
+            "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                    "mode": "raw",
+                    "raw": "[]"
+                },
+                "url": {
+                    "raw": "{{base_url}}\/telescope\/telescope-api\/client-requests",
+                    "host": [
+                        "{{base_url}}"
+                    ],
+                    "path": [
+                        "telescope",
+                        "telescope-api",
+                        "client-requests"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "telescope\/telescope-api\/client-requests\/{telescopeEntryId}",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "body": {
+                    "mode": "raw",
+                    "raw": "[]"
+                },
+                "url": {
+                    "raw": "{{base_url}}\/telescope\/telescope-api\/client-requests\/{telescopeEntryId}",
+                    "host": [
+                        "{{base_url}}"
+                    ],
+                    "path": [
+                        "telescope",
+                        "telescope-api",
+                        "client-requests",
+                        "{telescopeEntryId}"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "telescope\/telescope-api\/monitored-tags",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "body": {
+                    "mode": "raw",
+                    "raw": "[]"
+                },
+                "url": {
+                    "raw": "{{base_url}}\/telescope\/telescope-api\/monitored-tags",
+                    "host": [
+                        "{{base_url}}"
+                    ],
+                    "path": [
+                        "telescope",
+                        "telescope-api",
+                        "monitored-tags"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "telescope\/telescope-api\/monitored-tags",
+            "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                    "mode": "raw",
+                    "raw": "[]"
+                },
+                "url": {
+                    "raw": "{{base_url}}\/telescope\/telescope-api\/monitored-tags",
+                    "host": [
+                        "{{base_url}}"
+                    ],
+                    "path": [
+                        "telescope",
+                        "telescope-api",
+                        "monitored-tags"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "telescope\/telescope-api\/monitored-tags\/delete",
+            "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                    "mode": "raw",
+                    "raw": "[]"
+                },
+                "url": {
+                    "raw": "{{base_url}}\/telescope\/telescope-api\/monitored-tags\/delete",
+                    "host": [
+                        "{{base_url}}"
+                    ],
+                    "path": [
+                        "telescope",
+                        "telescope-api",
+                        "monitored-tags",
+                        "delete"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "telescope\/telescope-api\/toggle-recording",
+            "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                    "mode": "raw",
+                    "raw": "[]"
+                },
+                "url": {
+                    "raw": "{{base_url}}\/telescope\/telescope-api\/toggle-recording",
+                    "host": [
+                        "{{base_url}}"
+                    ],
+                    "path": [
+                        "telescope",
+                        "telescope-api",
+                        "toggle-recording"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "telescope\/telescope-api\/entries",
+            "request": {
+                "method": "DELETE",
+                "header": [],
+                "body": {
+                    "mode": "raw",
+                    "raw": "[]"
+                },
+                "url": {
+                    "raw": "{{base_url}}\/telescope\/telescope-api\/entries",
+                    "host": [
+                        "{{base_url}}"
+                    ],
+                    "path": [
+                        "telescope",
+                        "telescope-api",
+                        "entries"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "telescope\/{view?}",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "body": {
+                    "mode": "raw",
+                    "raw": "[]"
+                },
+                "url": {
+                    "raw": "{{base_url}}\/telescope\/{view?}",
+                    "host": [
+                        "{{base_url}}"
+                    ],
+                    "path": [
+                        "telescope",
+                        "{view?}"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "api\/restify\/login",
+            "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                    "mode": "raw",
+                    "raw": "[]"
+                },
+                "url": {
+                    "raw": "{{base_url}}\/api\/restify\/login",
+                    "host": [
+                        "{{base_url}}"
+                    ],
+                    "path": [
+                        "api",
+                        "restify",
+                        "login"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "api\/restify\/register",
+            "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                    "mode": "raw",
+                    "raw": "[]"
+                },
+                "url": {
+                    "raw": "{{base_url}}\/api\/restify\/register",
+                    "host": [
+                        "{{base_url}}"
+                    ],
+                    "path": [
+                        "api",
+                        "restify",
+                        "register"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "api\/restify\/forgotPassword",
+            "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                    "mode": "raw",
+                    "raw": "[]"
+                },
+                "url": {
+                    "raw": "{{base_url}}\/api\/restify\/forgotPassword",
+                    "host": [
+                        "{{base_url}}"
+                    ],
+                    "path": [
+                        "api",
+                        "restify",
+                        "forgotPassword"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "api\/restify\/resetPassword",
+            "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                    "mode": "raw",
+                    "raw": "[]"
+                },
+                "url": {
+                    "raw": "{{base_url}}\/api\/restify\/resetPassword",
+                    "host": [
+                        "{{base_url}}"
+                    ],
+                    "path": [
+                        "api",
+                        "restify",
+                        "resetPassword"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "api\/restify\/verify\/{id}\/{emailHash}",
+            "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                    "mode": "raw",
+                    "raw": "[]"
+                },
+                "url": {
+                    "raw": "{{base_url}}\/api\/restify\/verify\/{id}\/{emailHash}",
+                    "host": [
+                        "{{base_url}}"
+                    ],
+                    "path": [
+                        "api",
+                        "restify",
+                        "verify",
+                        "{id}",
+                        "{emailHash}"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "api\/restify\/sendOtp",
+            "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                    "mode": "raw",
+                    "raw": "[]"
+                },
+                "url": {
+                    "raw": "{{base_url}}\/api\/restify\/sendOtp",
+                    "host": [
+                        "{{base_url}}"
+                    ],
+                    "path": [
+                        "api",
+                        "restify",
+                        "sendOtp"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "api\/restify\/changePassword",
+            "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                    "mode": "raw",
+                    "raw": "[]"
+                },
+                "url": {
+                    "raw": "{{base_url}}\/api\/restify\/changePassword",
+                    "host": [
+                        "{{base_url}}"
+                    ],
+                    "path": [
+                        "api",
+                        "restify",
+                        "changePassword"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "api\/restify\/verifyOtp",
+            "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                    "mode": "raw",
+                    "raw": "[]"
+                },
+                "url": {
+                    "raw": "{{base_url}}\/api\/restify\/verifyOtp",
+                    "host": [
+                        "{{base_url}}"
+                    ],
+                    "path": [
+                        "api",
+                        "restify",
+                        "verifyOtp"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "users",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "body": {
+                    "mode": "raw",
+                    "raw": "[]"
+                },
+                "url": {
+                    "raw": "{{base_url}}\/users",
+                    "host": [
+                        "{{base_url}}"
+                    ],
+                    "path": [
+                        "users"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "users\/{id}",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "body": {
+                    "mode": "raw",
+                    "raw": "[]"
+                },
+                "url": {
+                    "raw": "{{base_url}}\/users\/{id}",
+                    "host": [
+                        "{{base_url}}"
+                    ],
+                    "path": [
+                        "users",
+                        "{id}"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "users",
+            "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                    "mode": "raw",
+                    "raw": "[]"
+                },
+                "url": {
+                    "raw": "{{base_url}}\/users",
+                    "host": [
+                        "{{base_url}}"
+                    ],
+                    "path": [
+                        "users"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "users\/{id}",
+            "request": {
+                "method": "PUT",
+                "header": [],
+                "body": {
+                    "mode": "raw",
+                    "raw": "[]"
+                },
+                "url": {
+                    "raw": "{{base_url}}\/users\/{id}",
+                    "host": [
+                        "{{base_url}}"
+                    ],
+                    "path": [
+                        "users",
+                        "{id}"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "users\/{id}",
+            "request": {
+                "method": "DELETE",
+                "header": [],
+                "body": {
+                    "mode": "raw",
+                    "raw": "[]"
+                },
+                "url": {
+                    "raw": "{{base_url}}\/users\/{id}",
+                    "host": [
+                        "{{base_url}}"
+                    ],
+                    "path": [
+                        "users",
+                        "{id}"
+                    ]
+                }
+            }
+        }
+    ]
+}

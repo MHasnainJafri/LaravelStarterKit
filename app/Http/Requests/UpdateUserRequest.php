@@ -12,11 +12,12 @@ class UpdateUserRequest extends FormRequest
 
     public function rules()
     {
-        dd("here");
+  
         return [
             'name' => 'sometimes|required|string|max:255',
             'email' => 'sometimes|required|email|unique:users,email,' . $this->route('id'),
             'phone' => 'nullable|string|max:20',
+            'image'=>'file|mimes:jpeg,png,jpg,gif|max:2048',
         ];
     }
 

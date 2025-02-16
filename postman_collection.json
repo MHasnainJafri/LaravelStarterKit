@@ -1,0 +1,186 @@
+{
+    "info": {
+        "name": "Laravel RestApiKit",
+        "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
+    },
+    "item": [
+        {
+            "name": "Users",
+            "item": [
+                {
+                    "name": "Fetch all users",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{base_url}}\/api\/users?name=John&sort=created_at&direction=desc&paginate=true&per_page=10",
+                            "host": [
+                                "{{base_url}}"
+                            ],
+                            "path": [
+                                "api",
+                                "users?name=John&sort=created_at&direction=desc&paginate=true&per_page=10"
+                            ],
+                            "query": [
+                                {
+                                    "key": "name",
+                                    "value": "John"
+                                },
+                                {
+                                    "key": "sort",
+                                    "value": "created_at"
+                                },
+                                {
+                                    "key": "direction",
+                                    "value": "desc"
+                                },
+                                {
+                                    "key": "paginate",
+                                    "value": "true"
+                                },
+                                {
+                                    "key": "per_page",
+                                    "value": "10"
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Fetch a single users",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{base_url}}\/api\/users\/{id}",
+                            "host": [
+                                "{{base_url}}"
+                            ],
+                            "path": [
+                                "api",
+                                "users",
+                                "{id}"
+                            ],
+                            "query": []
+                        }
+                    }
+                },
+                {
+                    "name": "Create a new users",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{base_url}}\/api\/users",
+                            "host": [
+                                "{{base_url}}"
+                            ],
+                            "path": [
+                                "api",
+                                "users"
+                            ],
+                            "query": []
+                        },
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"name\": \"example_string\",\n    \"email\": \"example_string\",\n    \"phone\": \"example_string\",\n    \"password\": \"example_string\"\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "Update an existing users",
+                    "request": {
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{base_url}}\/api\/users\/{id}",
+                            "host": [
+                                "{{base_url}}"
+                            ],
+                            "path": [
+                                "api",
+                                "users",
+                                "{id}"
+                            ],
+                            "query": []
+                        },
+                        "body": {
+                            "mode": "formdata",
+                            "formdata": [
+                                {
+                                    "key": "name",
+                                    "value": "example_string",
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "email",
+                                    "value": "example_string",
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "phone",
+                                    "value": "example_string",
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "image",
+                                    "type": "file",
+                                    "src": ""
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Delete a users",
+                    "request": {
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{base_url}}\/api\/users\/{id}",
+                            "host": [
+                                "{{base_url}}"
+                            ],
+                            "path": [
+                                "api",
+                                "users",
+                                "{id}"
+                            ],
+                            "query": []
+                        }
+                    }
+                }
+            ]
+        }
+    ]
+}
