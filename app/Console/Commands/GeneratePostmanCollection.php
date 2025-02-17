@@ -2,33 +2,18 @@
 
 namespace App\Console\Commands;
 
-use App\Repositories\UsersRepository;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\File;
 use ReflectionClass;
 
 class GeneratePostmanCollection extends Command
 {
-    /**
-     * The name and signature of the console command.
-     *
-     * @var string
-     */
-    protected $signature = 'postman:generate {--output=postman_collection.json}';
+    protected $signature = 'postman:generate {output?}';
+    protected $description = 'Generate a Postman collection for all repositories';
 
-    /**
-     * The console command description.
-     *
-     * @var string
-     */
-    protected $description = 'Generate a Postman collection dynamically based on repositories';
-
-    /**
-     * Execute the console command.
-     */
     public function handle()
     {
-        $outputFile = $this->option('output');
+        $outputFile = $this->argument('output') ?? base_path('postman-collection.json');
         $repoNamespace = 'App\\Repositories\\';
         $repoPath = app_path('Repositories');
 
@@ -76,17 +61,17 @@ class GeneratePostmanCollection extends Command
     protected function generateResourceEndpoints(string $repositoryClass, string $resourceName): array
     {
         // Extract validation rules for POST and PUT requests
-        $storeRules = $this->extractValidationRules($repositoryClass, 'storeValidationRules');
-        $updateRules = $this->extractValidationRules($repositoryClass, 'updateValidationRules');
+        $storeRules = $this->extractValidationRules($repositoryClass, 'validationRules', 'store');
+        $updateRules = $this->extractValidationRules($repositoryClass, 'validationRules', 'update');
 
         return [
             'name' => ucfirst($resourceName),
             'item' => [
-                $this->createEndpoint('GET', "/api/{$resourceName}", 'Fetch all ' . $resourceName,'index'),
-                $this->createEndpoint('GET', "/api/{$resourceName}/{id}", 'Fetch a single ' . $resourceName,'show'),
+                $this->createEndpoint('GET', "/api/{$resourceName}", 'Fetch all ' . $resourceName, 'index'),
+                $this->createEndpoint('GET', "/api/{$resourceName}/{id}", 'Fetch a single ' . $resourceName, 'show'),
                 $this->createEndpointWithBody('POST', "/api/{$resourceName}", 'Create a new ' . $resourceName, $storeRules),
                 $this->createEndpointWithBody('PUT', "/api/{$resourceName}/{id}", 'Update an existing ' . $resourceName, $updateRules),
-                $this->createEndpoint('DELETE', "/api/{$resourceName}/{id}", 'Delete a ' . $resourceName,'destroy'),
+                $this->createEndpoint('DELETE', "/api/{$resourceName}/{id}", 'Delete a ' . $resourceName, 'destroy'),
             ],
         ];
     }
@@ -96,29 +81,18 @@ class GeneratePostmanCollection extends Command
      *
      * @param string $repositoryClass
      * @param string $methodName
+     * @param string $operation
      * @return array|null
      */
-    protected function extractValidationRules(string $repositoryClass, string $methodName): ?array
+    protected function extractValidationRules(string $repositoryClass, string $methodName, string $operation): ?array
     {
         if (!method_exists($repositoryClass, $methodName)) {
             return null;
         }
 
-        // Call the public method directly
-        $formRequestClass = $repositoryClass::$methodName();
-        if (!class_exists($formRequestClass)) {
-            return null;
-        }
+        // Call the static method to get validation rules
+        $rules = $repositoryClass::$methodName($operation);
 
-        // Instantiate the Form Request class
-        $formRequestInstance = new $formRequestClass();
-
-        // Call the rules() method on the instance
-        if (!method_exists($formRequestInstance, 'rules')) {
-            return null;
-        }
-
-        $rules = $formRequestInstance->rules();
         return $this->convertRulesToJsonSchema($rules);
     }
 
@@ -246,7 +220,7 @@ class GeneratePostmanCollection extends Command
         $formData = [];
 
         foreach ($schema['properties'] as $field => $property) {
-           if ($property['type'] === 'file') {
+            if ($property['type'] === 'file') {
                 $formData[] = [
                     'key' => $field,
                     'type' => 'file',
@@ -305,39 +279,49 @@ class GeneratePostmanCollection extends Command
      * @param string $method
      * @param string $url
      * @param string $description
+     * @param string|null $functionName
      * @return array
      */
-   /**
- * Create a Postman endpoint.
- *
- * @param string $method
- * @param string $url
- * @param string $description
- * @param string|null $functionName
- * @return array
- */
-protected function createEndpoint(string $method, string $url, string $description, ?string $functionName = null): array
+    protected function createEndpoint(string $method, string $url, string $description, ?string $functionName = null): array
 {
     // Handle search filters for the index endpoint
     if ($functionName === 'index') {
         $repositoryClass = $this->getRepositoryClassFromUrl($url);
         if ($repositoryClass) {
-            // Access static variables for searchable and sortable fields
+            // Access static variables for searchable, sortable, and allowed relations
             $searchableFields = $repositoryClass::$searchable ?? [];
             $sortableFields = $repositoryClass::$sortable ?? [];
+            $allowedRelations = $repositoryClass::$allowedRelations ?? [];
 
-            // Build search and sort query parameters
+            // Build query parameters dynamically
             $queryParams = [];
+
+            // Add search parameter (example: search=email@123.com)
             if (!empty($searchableFields)) {
-                // Example search query: name=John (matches your index method logic)
-                $queryParams['name'] = 'John'; 
+                $queryParams['search'] = 'email@123.com'; // Example search value
             }
+
+            // Add sort parameter (example: sort=name,-created_at)
             if (!empty($sortableFields)) {
-                $queryParams['sort'] = 'created_at';
-                $queryParams['direction'] = 'desc';
+                $queryParams['sort'] = implode(',', [
+                    $sortableFields[0], // First sortable field
+                    '-' . ($sortableFields[1] ?? ''), // Second sortable field (descending)
+                ]);
             }
-            $queryParams['paginate'] = 'true';
-            $queryParams['per_page'] = '10';
+
+            // Add with parameter (example: with=roles,posts)
+            if (!empty($allowedRelations)) {
+                $queryParams['with'] = implode(',', $allowedRelations);
+            }
+
+            // Add pagination parameters (example: page=1&per_page=20)
+            $queryParams['page'] = '1';
+            $queryParams['per_page'] = '20';
+
+            // Add filter parameter (example: filter={"created_at":{"gt":"2026-01-01"}})
+            $queryParams['filter'] = json_encode([
+                'created_at' => ['gt' => '2026-01-01'], // Example filter condition
+            ]);
 
             // Append query parameters to the URL only once
             $url = strtok($url, '?'); // Strip existing query parameters
@@ -365,66 +349,71 @@ protected function createEndpoint(string $method, string $url, string $descripti
     ];
 }
 
-/**
- * Extract query parameters from a URL.
- *
- * @param string $url
- * @return array
- */
-protected function extractQueryParams(string $url): array
-{
-    $queryParams = [];
-    $queryString = parse_url($url, PHP_URL_QUERY);
-    if ($queryString) {
-        parse_str($queryString, $queryParams);
+    /**
+     * Extract query parameters from a URL.
+     *
+     * @param string $url
+     * @return array
+     */
+    protected function extractQueryParams(string $url): array
+    {
+        $queryParams = [];
+        $queryString = parse_url($url, PHP_URL_QUERY);
+        if ($queryString) {
+            parse_str($queryString, $queryParams);
+        }
+
+        $query = [];
+        foreach ($queryParams as $key => $value) {
+            $query[] = [
+                'key' => $key,
+                'value' => $value,
+            ];
+        }
+
+        return $query;
     }
 
-    $query = [];
-    foreach ($queryParams as $key => $value) {
-        $query[] = [
-            'key' => $key,
-            'value' => $value,
-        ];
+    /**
+     * Get the repository class from the URL.
+     *
+     * @param string $url
+     * @return string|null
+     */
+    protected function getRepositoryClassFromUrl(string $url): ?string
+    {
+        $path = explode('/', trim($url, '/'));
+        $resourceName = $path[1] ?? null;
+        if ($resourceName) {
+            $repositoryClass = 'App\\Repositories\\' . ucfirst($resourceName) . 'Repository';
+            if (class_exists($repositoryClass)) {
+                return $repositoryClass;
+            }
+        }
+        return null;
     }
 
-    return $query;
-}
-
-/**
- * Get the repository class from the URL.
- *
- * @param string $url
- * @return string|null
- */
-protected function getRepositoryClassFromUrl(string $url): ?string
-{
-    $path = explode('/', trim($url, '/'));
-    $resourceName = $path[1] ?? null;
-    if ($resourceName) {
-        $repositoryClass = 'App\\Repositories\\' . ucfirst($resourceName) . 'Repository';
-        if (class_exists($repositoryClass)) {
-            return $repositoryClass;
+    /**
+     * Get an example value based on the type.
+     *
+     * @param string $type
+     * @return mixed
+     */
+    protected function getExampleValue(string $type)
+    {
+        switch ($type) {
+            case 'string':
+                return 'example_string';
+            case 'integer':
+                return 123;
+            case 'boolean':
+                return true;
+            case 'array':
+                return ['example_item'];
+            case 'number':
+                return 123.45;
+            default:
+                return 'example_value';
         }
     }
-    return null;
-}
-
-    protected function getExampleValue(string $type)
-{
-    
-    switch ($type) {
-        case 'string':
-            return 'example_string';
-        case 'integer':
-            return 123;
-        case 'boolean':
-            return true;
-        case 'array':
-            return ['example_item'];
-        case 'number':
-            return 123.45;
-        default:
-            return 'example_value';
-    }
-}
 }

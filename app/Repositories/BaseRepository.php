@@ -274,7 +274,7 @@ abstract class BaseRepository
         }
     }
 
-    protected static function validationRules(string $operation): array
+    public static function validationRules(string $operation): array
     {
         return [];
     }
@@ -290,28 +290,32 @@ abstract class BaseRepository
     }
 
     protected static function formatResponse($data, string $message = '', int $code = 200, string $operation = null)
-    {
-        if ($operation == 'index' && static::$resourceClass != JsonResource::class) {
-            $data = static::$resourceClass::collection($data);
-        } elseif ($operation == 'show' && static::$resourceClass != JsonResource::class) {
-            $data = new static::$resourceClass($data);
-        }
-    
-        // Check if the original data is paginated
-        $originalData = $data->resource ?? null;
-    
-        if ($originalData instanceof LengthAwarePaginator) {
-            return API::paginated($data, $message, $code);
-        }
-    
-        return API::response($data, [
-            'message' => $message,
-            'timestamp' => now()->toISOString(),
-            'links' => [
-                'self' => request()->fullUrl(),
-            ],
-        ], $code);
+{
+    if ($operation == 'index' && static::$resourceClass != JsonResource::class) {
+        $data = static::$resourceClass::collection($data);
+    } elseif ($operation == 'show' && static::$resourceClass != JsonResource::class) {
+        $data = new static::$resourceClass($data);
     }
+
+    // Check if the original data is paginated
+    $originalData = $data->resource ?? null;
+
+    if ($originalData instanceof LengthAwarePaginator) {
+        return API::paginated($data, $message, $code);
+    }
+
+    return API::response($data, [
+        'message' => $message,
+        'timestamp' => now()->toISOString(),
+        'links' => [
+            'self' => request()->fullUrl(),
+        ],
+        'meta' => [
+            'code' => $code,
+            'status' => 'success',
+        ],
+    ], $code);
+}
 
     protected static function mapOperator(string $operator): string
     {

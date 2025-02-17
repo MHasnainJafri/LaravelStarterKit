@@ -62,7 +62,7 @@ class UsersRepository extends BaseRepository
         return $model;
     }
 
-    protected static function validationRules(string $operation): array
+    public static function validationRules(string $operation): array
     {
         return $operation === 'store' ? [
             'name' => 'required|string|max:255',
