@@ -19,6 +19,14 @@ class UsersRepository extends BaseRepository
     protected static int $defaultPerPage = 20;
     protected static string|null $cacheTag = 'users';
     protected static bool $useSoftDeletes = true;
+    public static function validationRules(string $operation): array
+    {
+        return $operation === 'store' ? [
+           
+        ] : [
+           
+        ];
+    }
 
     public static function customRoutes(string $modelName)
     {
@@ -62,16 +70,5 @@ class UsersRepository extends BaseRepository
         return $model;
     }
 
-    public static function validationRules(string $operation): array
-    {
-        return $operation === 'store' ? [
-            'name' => 'required|string|max:255',
-            'email' => 'required|email|unique:users',
-            'password' => 'required|string|min:8',
-        ] : [
-            'name' => 'sometimes|string|max:255',
-            'email' => 'sometimes|email|unique:users,email,'.request()->route('id'),
-            'password' => 'sometimes|string|min:8',
-        ];
-    }
+  
 }

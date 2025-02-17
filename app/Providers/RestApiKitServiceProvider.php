@@ -29,7 +29,7 @@ class RestApiKitServiceProvider extends ServiceProvider
     protected function registerRoutes()
     {
         Route::prefix('api')
-            ->middleware('api')
+            // ->middleware('api')
             ->group(function () {
                 $this->registerCrudRoutes();
                 $this->registerCustomRoutes();

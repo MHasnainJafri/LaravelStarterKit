@@ -69,3 +69,13 @@ Route::restifyAuth();
 // work with scope also
 // GET /users?filters[active]=1
 // GET /users?filters[hasRole]=admin
+
+
+
+// php artisan make:repository Post \
+//     --resource=PostResource \
+//     --searchable=title,content \
+//     --sortable=title,created_at \
+//     --relations=author,comments \
+//     --cache-tag=posts \
+//     --per-page=20
